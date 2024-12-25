@@ -1,0 +1,37 @@
+﻿<Page x:Class="WpfApp1.View.AdminManagementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="AdminManagementPage" Height="450" Width="600">
+    <Grid Background="White" Margin="20">
+        <StackPanel>
+            <TextBlock Text="Quản lý cơ sở hành chính" FontSize="24" HorizontalAlignment="Center" Margin="0,0,0,20" FontWeight="Bold"/>
+
+            <!-- ComboBox Huyện -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Huyện:" Width="120" VerticalAlignment="Center" TextAlignment="Center"/>
+                <ComboBox ItemsSource="{Binding Huyens}" 
+                          SelectedItem="{Binding SelectedHuyen}"
+                          DisplayMemberPath="name"
+                          Width="200"/>
+            </StackPanel>
+
+            <!-- DataGrid Xã -->
+            <DataGrid ItemsSource="{Binding Xas}" AutoGenerateColumns="False" Height="260" Margin="0,10,0,10" IsReadOnly="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID Xã" Binding="{Binding id_xa}" Width="100" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Tên Xã" Binding="{Binding name}" Width="200"/>
+                    <DataGridTextColumn Header="ID Huyện" Binding="{Binding id_Huyen}" Width="100" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Tên Huyện" Binding="{Binding HuyenName, UpdateSourceTrigger=PropertyChanged}" Width="200"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- Chức năng thêm, sửa -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Thêm Huyện" Command="{Binding AddHuyenCommand}" Margin="5" Padding="5"/>
+                <Button Content="Thêm Xã" Command="{Binding AddXaCommand}" Margin="5" Padding="5"/>
+                <Button Content="Cập nhật Thông tin" Command="{Binding UpdateCommand}" Margin="5" Padding="5"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

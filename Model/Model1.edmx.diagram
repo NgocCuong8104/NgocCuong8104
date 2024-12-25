@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="66657b01cd764f829aff6cb6375b2e60" Name="Diagram1">
+        <EntityTypeShape EntityType="ktpmudModel.animal" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ktpmudModel.Chung_nhan" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ktpmudModel.Co_so" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ktpmudModel.Con_giong_vat_nuoi" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ktpmudModel.Gen_dv" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ktpmudModel.Huyen" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ktpmudModel.loai_hinh_tac_dong" Width="1.5" PointX="7.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ktpmudModel.Loai_hinh_user" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ktpmudModel.quy_mo" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ktpmudModel.Role" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ktpmudModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ktpmudModel.thanh_phan_thuc_an" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ktpmudModel.Tinh_phoi_uu_trung_aptrung" Width="1.5" PointX="3" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ktpmudModel.user" Width="1.5" PointX="7.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ktpmudModel.Xa" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ktpmudModel.log" Width="1.5" PointX="9.75" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="ktpmudModel.FK_Co_so_animal" ManuallyRouted="false" />
+        <AssociationConnector Association="ktpmudModel.FK_Co_so_Chung_nhan" ManuallyRouted="false" />
+        <AssociationConnector Association="ktpmudModel.FK_Co_so_Con_giong_vat_nuoi" ManuallyRouted="false" />
+        <AssociationConnector Association="ktpmudModel.FK_Co_so_Gen_dv" ManuallyRouted="false" />
+        <AssociationConnector Association="ktpmudModel.FK_Co_so_Huyen" ManuallyRouted="false" />
+        <AssociationConnector Association="ktpmudModel.FK_Co_so_Loai_hinh_user" ManuallyRouted="false" />
+        <AssociationConnector Association="ktpmudModel.FK_Co_so_Tinh_phoi_uu_trung_aptrung" ManuallyRouted="false" />
+        <AssociationConnector Association="ktpmudModel.FK_Co_so_Xa" ManuallyRouted="false" />
+        <AssociationConnector Association="ktpmudModel.FK_user_Co_so" ManuallyRouted="false" />
+        <AssociationConnector Association="ktpmudModel.FK__Xa__id_Huyen__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="ktpmudModel.FK_user_Huyen" ManuallyRouted="false" />
+        <AssociationConnector Association="ktpmudModel.FK__log__id_loai_hin__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="ktpmudModel.FK__user__id_quy_mo__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="ktpmudModel.FK_user_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="ktpmudModel.FK__log__id_user__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="ktpmudModel.FK_user_Xa" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

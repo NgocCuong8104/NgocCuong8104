@@ -1,0 +1,59 @@
+﻿<Window x:Class="WpfApp1.View.AddUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Thêm người dùng mới" 
+        Width="400" 
+        Height="500">
+    <Grid Margin="10">
+        <StackPanel>
+            <TextBlock Text="Thêm người dùng mới" FontSize="20" Margin="0,0,0,20" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Username:" Width="120" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding NewUsername, UpdateSourceTrigger=PropertyChanged}" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Password:" Width="120" VerticalAlignment="Center"/>
+                <PasswordBox Width="200" PasswordChanged="PasswordBox_PasswordChanged" />
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Huyện:" Width="120" VerticalAlignment="Center"/>
+                <ComboBox ItemsSource="{Binding Huyens}" 
+                          SelectedValue="{Binding NewHuyenId, Mode=TwoWay}"
+                          SelectedValuePath="id_Huyen"
+                          DisplayMemberPath="name"
+                          Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Xã:" Width="120" VerticalAlignment="Center"/>
+                <ComboBox ItemsSource="{Binding NewXas}" 
+                          SelectedValue="{Binding NewXaId, Mode=TwoWay}" 
+                          SelectedValuePath="id_xa"
+                          DisplayMemberPath="name"
+                          Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Số điện thoại:" Width="120" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding NewSdt, UpdateSourceTrigger=PropertyChanged}" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Email:" Width="120" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding NewEmail, UpdateSourceTrigger=PropertyChanged}" Width="200"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Role:" Width="120" VerticalAlignment="Center"/>
+                <ComboBox ItemsSource="{Binding Roles}" 
+                          SelectedValue="{Binding NewRoleId, Mode=TwoWay}" 
+                          SelectedValuePath="id"
+                          DisplayMemberPath="name"
+                          Width="200"/>
+            </StackPanel>
+            <Button Content="Lưu" 
+                    Command="{Binding AddUserCommand}" 
+                    Width="100" 
+                    HorizontalAlignment="Center" 
+                    Margin="0,20,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

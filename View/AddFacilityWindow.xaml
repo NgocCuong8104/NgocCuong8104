@@ -1,0 +1,97 @@
+﻿<Window x:Class="WpfApp1.View.AddFacilityWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Thêm cơ sở" Height="600" Width="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*" />
+            <ColumnDefinition Width="1.5*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Tiêu đề -->
+     
+
+        <!-- Cột trái -->
+        <StackPanel Grid.Column="0" Grid.Row="1" Margin="10">
+            <TextBlock Text="Tên cơ sở:" Margin="0,5" />
+            <TextBox Text="{Binding NewName}" Width="200" Margin="0,5,0,15" />
+
+            <TextBlock Text="Con giống vật nuôi:" Margin="0,5" />
+            <ComboBox ItemsSource="{Binding ConGiongVatNuois}"
+                      SelectedValue="{Binding NewConGiongVatNuoiId}"
+                      SelectedValuePath="id"
+                      DisplayMemberPath="name"
+                      Width="200" Margin="0,5,0,15" />
+
+            <TextBlock Text="Animal:" Margin="0,5" />
+            <ComboBox ItemsSource="{Binding Animals}"
+                      SelectedValue="{Binding NewAnimalId}"
+                      SelectedValuePath="id"
+                      DisplayMemberPath="name"
+                      Width="200" Margin="0,5,0,15" />
+
+            <TextBlock Text="Tính phối:" Margin="0,5" />
+            <ComboBox ItemsSource="{Binding TinhPhois}"
+                      SelectedValue="{Binding NewTinhPhoiId}"
+                      SelectedValuePath="id"
+                      DisplayMemberPath="name"
+                      Width="200" Margin="0,5,0,15" />
+        </StackPanel>
+
+        <!-- Cột phải -->
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="10">
+            <TextBlock Text="Gen:" Margin="0,5" />
+            <ComboBox ItemsSource="{Binding Gens}"
+                      SelectedValue="{Binding NewGenId}"
+                      SelectedValuePath="id"
+                      DisplayMemberPath="name"
+                      Width="200" Margin="0,5,0,15" />
+
+            <TextBlock Text="Thức ăn chăn nuôi:" Margin="0,5" />
+            <CheckBox IsChecked="{Binding NewThucAnChanNuoi}"
+                      Content="Có"
+                      Width="200" Margin="0,5,0,15" />
+
+            <TextBlock Text="Chứng nhận:" Margin="0,5" />
+            <ComboBox ItemsSource="{Binding ChungNhans}"
+                      SelectedValue="{Binding NewChungNhanId}"
+                      SelectedValuePath="id"
+                      DisplayMemberPath="name"
+                      Width="200" Margin="0,5,0,15" />
+
+            <TextBlock Text="Huyện:" Margin="0,5" />
+            <ComboBox ItemsSource="{Binding Huyens}"
+          SelectedValue="{Binding NewHuyenId, Mode=TwoWay}"
+          SelectedValuePath="id_Huyen"
+          DisplayMemberPath="name"
+          Width="200" Margin="0,5,0,15" />
+
+
+            <TextBlock Text="Xã:" Margin="0,5" />
+            <ComboBox ItemsSource="{Binding Xas}"
+          SelectedValue="{Binding NewXaId, Mode=TwoWay}"
+          SelectedValuePath="id_xa"
+          DisplayMemberPath="name"
+          Width="200" Margin="0,5,0,15" />
+
+
+            <TextBlock Text="Loại hình:" Margin="0,5" />
+            <ComboBox ItemsSource="{Binding LoaiHinhs}"
+                      SelectedValue="{Binding NewLoaiHinhId}"
+                      SelectedValuePath="id"
+                      DisplayMemberPath="name"
+                      Width="200" Margin="0,5,0,15" />
+        </StackPanel>
+
+        <!-- Nút lưu và hủy -->
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button Content="Lưu" Width="100" Margin="10" Command="{Binding SaveNewFacilityCommand}" />
+            <Button Content="Hủy" Width="100" Margin="10" Click="CancelButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

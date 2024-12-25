@@ -1,0 +1,1165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ktpmudModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="animal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Chung_nhan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Co_so">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_con_giong_vat_nuoi" Type="int" />
+          <Property Name="id_animal" Type="int" />
+          <Property Name="id_tinh_phoi" Type="int" />
+          <Property Name="id_loai_hinh" Type="int" />
+          <Property Name="id_user_dung_dau" Type="int" />
+          <Property Name="id_xa" Type="int" />
+          <Property Name="id_huyen" Type="int" />
+          <Property Name="id_gen" Type="int" />
+          <Property Name="id_thuc_an_chan_nuoi" Type="bit" />
+          <Property Name="id_chung_nhan" Type="int" />
+        </EntityType>
+        <EntityType Name="Con_giong_vat_nuoi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="bao_ton" Type="bit" Nullable="false" />
+          <Property Name="cam_xuat_khau" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gen_dv">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Huyen">
+          <Key>
+            <PropertyRef Name="id_Huyen" />
+          </Key>
+          <Property Name="id_Huyen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="loai_hinh_tac_dong">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Loai_hinh_user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ktpmud.dbo.log' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="log">
+          <Key>
+            <PropertyRef Name="time" />
+            <PropertyRef Name="du_lieu_tac_dong" />
+          </Key>
+          <Property Name="id_loai_hinh_tac_dong" Type="int" />
+          <Property Name="id_user" Type="int" />
+          <Property Name="time" Type="datetime" Nullable="false" />
+          <Property Name="du_lieu_tac_dong" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="quy_mo">
+          <Key>
+            <PropertyRef Name="id_quy_mo" />
+          </Key>
+          <Property Name="id_quy_mo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="thanh_phan_thuc_an">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="cam" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tinh_phoi_uu_trung_aptrung">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="255" />
+          <Property Name="sdt" Type="nvarchar" MaxLength="20" />
+          <Property Name="id_xa" Type="int" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="status" Type="bit" />
+          <Property Name="id_quy_mo" Type="int" />
+          <Property Name="id_huyen" Type="int" />
+          <Property Name="id_co_so" Type="int" />
+          <Property Name="id_role" Type="int" />
+        </EntityType>
+        <EntityType Name="Xa">
+          <Key>
+            <PropertyRef Name="id_xa" />
+          </Key>
+          <Property Name="id_xa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="id_Huyen" Type="int" />
+        </EntityType>
+        <Association Name="FK__log__id_loai_hin__44FF419A">
+          <End Role="loai_hinh_tac_dong" Type="Self.loai_hinh_tac_dong" Multiplicity="0..1" />
+          <End Role="log" Type="Self.log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loai_hinh_tac_dong">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="log">
+              <PropertyRef Name="id_loai_hinh_tac_dong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__log__id_user__45F365D3">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="log" Type="Self.log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="log">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__user__id_quy_mo__3F466844">
+          <End Role="quy_mo" Type="Self.quy_mo" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quy_mo">
+              <PropertyRef Name="id_quy_mo" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="id_quy_mo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Xa__id_Huyen__398D8EEE">
+          <End Role="Huyen" Type="Self.Huyen" Multiplicity="0..1" />
+          <End Role="Xa" Type="Self.Xa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Huyen">
+              <PropertyRef Name="id_Huyen" />
+            </Principal>
+            <Dependent Role="Xa">
+              <PropertyRef Name="id_Huyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Co_so_animal">
+          <End Role="animal" Type="Self.animal" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="animal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_animal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Co_so_Chung_nhan">
+          <End Role="Chung_nhan" Type="Self.Chung_nhan" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chung_nhan">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_chung_nhan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Co_so_Con_giong_vat_nuoi">
+          <End Role="Con_giong_vat_nuoi" Type="Self.Con_giong_vat_nuoi" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Con_giong_vat_nuoi">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_con_giong_vat_nuoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Co_so_Gen_dv">
+          <End Role="Gen_dv" Type="Self.Gen_dv" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_dv">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_gen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Co_so_Huyen">
+          <End Role="Huyen" Type="Self.Huyen" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Huyen">
+              <PropertyRef Name="id_Huyen" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_huyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Co_so_Loai_hinh_user">
+          <End Role="Loai_hinh_user" Type="Self.Loai_hinh_user" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Loai_hinh_user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_loai_hinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Co_so_Tinh_phoi_uu_trung_aptrung">
+          <End Role="Tinh_phoi_uu_trung_aptrung" Type="Self.Tinh_phoi_uu_trung_aptrung" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tinh_phoi_uu_trung_aptrung">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_tinh_phoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Co_so_Xa">
+          <End Role="Xa" Type="Self.Xa" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Xa">
+              <PropertyRef Name="id_xa" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_xa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_Co_so">
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Co_so">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="id_co_so" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_Huyen">
+          <End Role="Huyen" Type="Self.Huyen" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Huyen">
+              <PropertyRef Name="id_Huyen" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="id_huyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_Xa">
+          <End Role="Xa" Type="Self.Xa" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Xa">
+              <PropertyRef Name="id_xa" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="id_xa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="ktpmudModelStoreContainer">
+          <EntitySet Name="animal" EntityType="Self.animal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chung_nhan" EntityType="Self.Chung_nhan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Co_so" EntityType="Self.Co_so" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Con_giong_vat_nuoi" EntityType="Self.Con_giong_vat_nuoi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gen_dv" EntityType="Self.Gen_dv" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Huyen" EntityType="Self.Huyen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="loai_hinh_tac_dong" EntityType="Self.loai_hinh_tac_dong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Loai_hinh_user" EntityType="Self.Loai_hinh_user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="quy_mo" EntityType="Self.quy_mo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="thanh_phan_thuc_an" EntityType="Self.thanh_phan_thuc_an" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tinh_phoi_uu_trung_aptrung" EntityType="Self.Tinh_phoi_uu_trung_aptrung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Xa" EntityType="Self.Xa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="log" EntityType="Self.log" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [log].[id_loai_hinh_tac_dong] AS [id_loai_hinh_tac_dong], 
+    [log].[id_user] AS [id_user], 
+    [log].[time] AS [time], 
+    [log].[du_lieu_tac_dong] AS [du_lieu_tac_dong]
+    FROM [dbo].[log] AS [log]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__log__id_loai_hin__44FF419A" Association="Self.FK__log__id_loai_hin__44FF419A">
+            <End Role="loai_hinh_tac_dong" EntitySet="loai_hinh_tac_dong" />
+            <End Role="log" EntitySet="log" />
+          </AssociationSet>
+          <AssociationSet Name="FK__log__id_user__45F365D3" Association="Self.FK__log__id_user__45F365D3">
+            <End Role="user" EntitySet="user" />
+            <End Role="log" EntitySet="log" />
+          </AssociationSet>
+          <AssociationSet Name="FK__user__id_quy_mo__3F466844" Association="Self.FK__user__id_quy_mo__3F466844">
+            <End Role="quy_mo" EntitySet="quy_mo" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Xa__id_Huyen__398D8EEE" Association="Self.FK__Xa__id_Huyen__398D8EEE">
+            <End Role="Huyen" EntitySet="Huyen" />
+            <End Role="Xa" EntitySet="Xa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Co_so_animal" Association="Self.FK_Co_so_animal">
+            <End Role="animal" EntitySet="animal" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Co_so_Chung_nhan" Association="Self.FK_Co_so_Chung_nhan">
+            <End Role="Chung_nhan" EntitySet="Chung_nhan" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Co_so_Con_giong_vat_nuoi" Association="Self.FK_Co_so_Con_giong_vat_nuoi">
+            <End Role="Con_giong_vat_nuoi" EntitySet="Con_giong_vat_nuoi" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Co_so_Gen_dv" Association="Self.FK_Co_so_Gen_dv">
+            <End Role="Gen_dv" EntitySet="Gen_dv" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Co_so_Huyen" Association="Self.FK_Co_so_Huyen">
+            <End Role="Huyen" EntitySet="Huyen" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Co_so_Loai_hinh_user" Association="Self.FK_Co_so_Loai_hinh_user">
+            <End Role="Loai_hinh_user" EntitySet="Loai_hinh_user" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Co_so_Tinh_phoi_uu_trung_aptrung" Association="Self.FK_Co_so_Tinh_phoi_uu_trung_aptrung">
+            <End Role="Tinh_phoi_uu_trung_aptrung" EntitySet="Tinh_phoi_uu_trung_aptrung" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Co_so_Xa" Association="Self.FK_Co_so_Xa">
+            <End Role="Xa" EntitySet="Xa" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_Co_so" Association="Self.FK_user_Co_so">
+            <End Role="Co_so" EntitySet="Co_so" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_Huyen" Association="Self.FK_user_Huyen">
+            <End Role="Huyen" EntitySet="Huyen" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_Role" Association="Self.FK_user_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_Xa" Association="Self.FK_user_Xa">
+            <End Role="Xa" EntitySet="Xa" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ktpmudModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="animal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Co_so" Relationship="Self.FK_Co_so_animal" FromRole="animal" ToRole="Co_so" />
+        </EntityType>
+        <EntityType Name="Chung_nhan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Co_so" Relationship="Self.FK_Co_so_Chung_nhan" FromRole="Chung_nhan" ToRole="Co_so" />
+        </EntityType>
+        <EntityType Name="Co_so">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_con_giong_vat_nuoi" Type="Int32" />
+          <Property Name="id_animal" Type="Int32" />
+          <Property Name="id_tinh_phoi" Type="Int32" />
+          <Property Name="id_loai_hinh" Type="Int32" />
+          <Property Name="id_user_dung_dau" Type="Int32" />
+          <Property Name="id_xa" Type="Int32" />
+          <Property Name="id_huyen" Type="Int32" />
+          <Property Name="id_gen" Type="Int32" />
+          <Property Name="id_thuc_an_chan_nuoi" Type="Boolean" />
+          <Property Name="id_chung_nhan" Type="Int32" />
+          <NavigationProperty Name="animal" Relationship="Self.FK_Co_so_animal" FromRole="Co_so" ToRole="animal" />
+          <NavigationProperty Name="Chung_nhan" Relationship="Self.FK_Co_so_Chung_nhan" FromRole="Co_so" ToRole="Chung_nhan" />
+          <NavigationProperty Name="Con_giong_vat_nuoi" Relationship="Self.FK_Co_so_Con_giong_vat_nuoi" FromRole="Co_so" ToRole="Con_giong_vat_nuoi" />
+          <NavigationProperty Name="Gen_dv" Relationship="Self.FK_Co_so_Gen_dv" FromRole="Co_so" ToRole="Gen_dv" />
+          <NavigationProperty Name="Huyen" Relationship="Self.FK_Co_so_Huyen" FromRole="Co_so" ToRole="Huyen" />
+          <NavigationProperty Name="Loai_hinh_user" Relationship="Self.FK_Co_so_Loai_hinh_user" FromRole="Co_so" ToRole="Loai_hinh_user" />
+          <NavigationProperty Name="Tinh_phoi_uu_trung_aptrung" Relationship="Self.FK_Co_so_Tinh_phoi_uu_trung_aptrung" FromRole="Co_so" ToRole="Tinh_phoi_uu_trung_aptrung" />
+          <NavigationProperty Name="Xa" Relationship="Self.FK_Co_so_Xa" FromRole="Co_so" ToRole="Xa" />
+          <NavigationProperty Name="users" Relationship="Self.FK_user_Co_so" FromRole="Co_so" ToRole="user" />
+        </EntityType>
+        <EntityType Name="Con_giong_vat_nuoi">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="bao_ton" Type="Boolean" Nullable="false" />
+          <Property Name="cam_xuat_khau" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Co_so" Relationship="Self.FK_Co_so_Con_giong_vat_nuoi" FromRole="Con_giong_vat_nuoi" ToRole="Co_so" />
+        </EntityType>
+        <EntityType Name="Gen_dv">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Co_so" Relationship="Self.FK_Co_so_Gen_dv" FromRole="Gen_dv" ToRole="Co_so" />
+        </EntityType>
+        <EntityType Name="Huyen">
+          <Key>
+            <PropertyRef Name="id_Huyen" />
+          </Key>
+          <Property Name="id_Huyen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Co_so" Relationship="Self.FK_Co_so_Huyen" FromRole="Huyen" ToRole="Co_so" />
+          <NavigationProperty Name="Xas" Relationship="Self.FK__Xa__id_Huyen__398D8EEE" FromRole="Huyen" ToRole="Xa" />
+          <NavigationProperty Name="users" Relationship="Self.FK_user_Huyen" FromRole="Huyen" ToRole="user" />
+        </EntityType>
+        <EntityType Name="loai_hinh_tac_dong">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="logs" Relationship="Self.FK__log__id_loai_hin__44FF419A" FromRole="loai_hinh_tac_dong" ToRole="log" />
+        </EntityType>
+        <EntityType Name="Loai_hinh_user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Co_so" Relationship="Self.FK_Co_so_Loai_hinh_user" FromRole="Loai_hinh_user" ToRole="Co_so" />
+        </EntityType>
+        <EntityType Name="quy_mo">
+          <Key>
+            <PropertyRef Name="id_quy_mo" />
+          </Key>
+          <Property Name="id_quy_mo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="Self.FK__user__id_quy_mo__3F466844" FromRole="quy_mo" ToRole="user" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="users" Relationship="Self.FK_user_Role" FromRole="Role" ToRole="user" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="thanh_phan_thuc_an">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cam" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tinh_phoi_uu_trung_aptrung">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Co_so" Relationship="Self.FK_Co_so_Tinh_phoi_uu_trung_aptrung" FromRole="Tinh_phoi_uu_trung_aptrung" ToRole="Co_so" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="sdt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="id_xa" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="status" Type="Boolean" />
+          <Property Name="id_quy_mo" Type="Int32" />
+          <Property Name="id_huyen" Type="Int32" />
+          <Property Name="id_co_so" Type="Int32" />
+          <Property Name="id_role" Type="Int32" />
+          <NavigationProperty Name="Co_so" Relationship="Self.FK_user_Co_so" FromRole="user" ToRole="Co_so" />
+          <NavigationProperty Name="Huyen" Relationship="Self.FK_user_Huyen" FromRole="user" ToRole="Huyen" />
+          <NavigationProperty Name="quy_mo" Relationship="Self.FK__user__id_quy_mo__3F466844" FromRole="user" ToRole="quy_mo" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_user_Role" FromRole="user" ToRole="Role" />
+          <NavigationProperty Name="logs" Relationship="Self.FK__log__id_user__45F365D3" FromRole="user" ToRole="log" />
+          <NavigationProperty Name="Xa" Relationship="Self.FK_user_Xa" FromRole="user" ToRole="Xa" />
+        </EntityType>
+        <EntityType Name="Xa">
+          <Key>
+            <PropertyRef Name="id_xa" />
+          </Key>
+          <Property Name="id_xa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_Huyen" Type="Int32" />
+          <NavigationProperty Name="Co_so" Relationship="Self.FK_Co_so_Xa" FromRole="Xa" ToRole="Co_so" />
+          <NavigationProperty Name="Huyen" Relationship="Self.FK__Xa__id_Huyen__398D8EEE" FromRole="Xa" ToRole="Huyen" />
+          <NavigationProperty Name="users" Relationship="Self.FK_user_Xa" FromRole="Xa" ToRole="user" />
+        </EntityType>
+        <EntityType Name="log">
+          <Key>
+            <PropertyRef Name="time" />
+            <PropertyRef Name="du_lieu_tac_dong" />
+          </Key>
+          <Property Name="id_loai_hinh_tac_dong" Type="Int32" />
+          <Property Name="id_user" Type="Int32" />
+          <Property Name="time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="du_lieu_tac_dong" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="loai_hinh_tac_dong" Relationship="Self.FK__log__id_loai_hin__44FF419A" FromRole="log" ToRole="loai_hinh_tac_dong" />
+          <NavigationProperty Name="user" Relationship="Self.FK__log__id_user__45F365D3" FromRole="log" ToRole="user" />
+        </EntityType>
+        <Association Name="FK_Co_so_animal">
+          <End Role="animal" Type="Self.animal" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="animal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_animal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Co_so_Chung_nhan">
+          <End Role="Chung_nhan" Type="Self.Chung_nhan" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chung_nhan">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_chung_nhan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Co_so_Con_giong_vat_nuoi">
+          <End Role="Con_giong_vat_nuoi" Type="Self.Con_giong_vat_nuoi" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Con_giong_vat_nuoi">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_con_giong_vat_nuoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Co_so_Gen_dv">
+          <End Role="Gen_dv" Type="Self.Gen_dv" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gen_dv">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_gen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Co_so_Huyen">
+          <End Role="Huyen" Type="Self.Huyen" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Huyen">
+              <PropertyRef Name="id_Huyen" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_huyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Co_so_Loai_hinh_user">
+          <End Role="Loai_hinh_user" Type="Self.Loai_hinh_user" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Loai_hinh_user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_loai_hinh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Co_so_Tinh_phoi_uu_trung_aptrung">
+          <End Role="Tinh_phoi_uu_trung_aptrung" Type="Self.Tinh_phoi_uu_trung_aptrung" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tinh_phoi_uu_trung_aptrung">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_tinh_phoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Co_so_Xa">
+          <End Role="Xa" Type="Self.Xa" Multiplicity="0..1" />
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Xa">
+              <PropertyRef Name="id_xa" />
+            </Principal>
+            <Dependent Role="Co_so">
+              <PropertyRef Name="id_xa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_Co_so">
+          <End Role="Co_so" Type="Self.Co_so" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Co_so">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="id_co_so" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Xa__id_Huyen__398D8EEE">
+          <End Role="Huyen" Type="Self.Huyen" Multiplicity="0..1" />
+          <End Role="Xa" Type="Self.Xa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Huyen">
+              <PropertyRef Name="id_Huyen" />
+            </Principal>
+            <Dependent Role="Xa">
+              <PropertyRef Name="id_Huyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_Huyen">
+          <End Role="Huyen" Type="Self.Huyen" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Huyen">
+              <PropertyRef Name="id_Huyen" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="id_huyen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__log__id_loai_hin__44FF419A">
+          <End Role="loai_hinh_tac_dong" Type="Self.loai_hinh_tac_dong" Multiplicity="0..1" />
+          <End Role="log" Type="Self.log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="loai_hinh_tac_dong">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="log">
+              <PropertyRef Name="id_loai_hinh_tac_dong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__user__id_quy_mo__3F466844">
+          <End Role="quy_mo" Type="Self.quy_mo" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="quy_mo">
+              <PropertyRef Name="id_quy_mo" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="id_quy_mo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="id_role" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__log__id_user__45F365D3">
+          <End Role="user" Type="Self.user" Multiplicity="0..1" />
+          <End Role="log" Type="Self.log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="log">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_user_Xa">
+          <End Role="Xa" Type="Self.Xa" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Xa">
+              <PropertyRef Name="id_xa" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="id_xa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ktpmudEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="animals" EntityType="Self.animal" />
+          <EntitySet Name="Chung_nhan" EntityType="Self.Chung_nhan" />
+          <EntitySet Name="Co_so" EntityType="Self.Co_so" />
+          <EntitySet Name="Con_giong_vat_nuoi" EntityType="Self.Con_giong_vat_nuoi" />
+          <EntitySet Name="Gen_dv" EntityType="Self.Gen_dv" />
+          <EntitySet Name="Huyens" EntityType="Self.Huyen" />
+          <EntitySet Name="loai_hinh_tac_dong" EntityType="Self.loai_hinh_tac_dong" />
+          <EntitySet Name="Loai_hinh_user" EntityType="Self.Loai_hinh_user" />
+          <EntitySet Name="quy_mo" EntityType="Self.quy_mo" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="thanh_phan_thuc_an" EntityType="Self.thanh_phan_thuc_an" />
+          <EntitySet Name="Tinh_phoi_uu_trung_aptrung" EntityType="Self.Tinh_phoi_uu_trung_aptrung" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="Xas" EntityType="Self.Xa" />
+          <EntitySet Name="logs" EntityType="Self.log" />
+          <AssociationSet Name="FK_Co_so_animal" Association="Self.FK_Co_so_animal">
+            <End Role="animal" EntitySet="animals" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Co_so_Chung_nhan" Association="Self.FK_Co_so_Chung_nhan">
+            <End Role="Chung_nhan" EntitySet="Chung_nhan" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Co_so_Con_giong_vat_nuoi" Association="Self.FK_Co_so_Con_giong_vat_nuoi">
+            <End Role="Con_giong_vat_nuoi" EntitySet="Con_giong_vat_nuoi" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Co_so_Gen_dv" Association="Self.FK_Co_so_Gen_dv">
+            <End Role="Gen_dv" EntitySet="Gen_dv" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Co_so_Huyen" Association="Self.FK_Co_so_Huyen">
+            <End Role="Huyen" EntitySet="Huyens" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Co_so_Loai_hinh_user" Association="Self.FK_Co_so_Loai_hinh_user">
+            <End Role="Loai_hinh_user" EntitySet="Loai_hinh_user" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Co_so_Tinh_phoi_uu_trung_aptrung" Association="Self.FK_Co_so_Tinh_phoi_uu_trung_aptrung">
+            <End Role="Tinh_phoi_uu_trung_aptrung" EntitySet="Tinh_phoi_uu_trung_aptrung" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Co_so_Xa" Association="Self.FK_Co_so_Xa">
+            <End Role="Xa" EntitySet="Xas" />
+            <End Role="Co_so" EntitySet="Co_so" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_Co_so" Association="Self.FK_user_Co_so">
+            <End Role="Co_so" EntitySet="Co_so" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Xa__id_Huyen__398D8EEE" Association="Self.FK__Xa__id_Huyen__398D8EEE">
+            <End Role="Huyen" EntitySet="Huyens" />
+            <End Role="Xa" EntitySet="Xas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_Huyen" Association="Self.FK_user_Huyen">
+            <End Role="Huyen" EntitySet="Huyens" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__log__id_loai_hin__44FF419A" Association="Self.FK__log__id_loai_hin__44FF419A">
+            <End Role="loai_hinh_tac_dong" EntitySet="loai_hinh_tac_dong" />
+            <End Role="log" EntitySet="logs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__user__id_quy_mo__3F466844" Association="Self.FK__user__id_quy_mo__3F466844">
+            <End Role="quy_mo" EntitySet="quy_mo" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_Role" Association="Self.FK_user_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__log__id_user__45F365D3" Association="Self.FK__log__id_user__45F365D3">
+            <End Role="user" EntitySet="users" />
+            <End Role="log" EntitySet="logs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_user_Xa" Association="Self.FK_user_Xa">
+            <End Role="Xa" EntitySet="Xas" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ktpmudModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ktpmudModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ktpmudModelStoreContainer" CdmEntityContainer="ktpmudEntities">
+          <EntitySetMapping Name="animals">
+            <EntityTypeMapping TypeName="ktpmudModel.animal">
+              <MappingFragment StoreEntitySet="animal">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chung_nhan">
+            <EntityTypeMapping TypeName="ktpmudModel.Chung_nhan">
+              <MappingFragment StoreEntitySet="Chung_nhan">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Co_so">
+            <EntityTypeMapping TypeName="ktpmudModel.Co_so">
+              <MappingFragment StoreEntitySet="Co_so">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id_con_giong_vat_nuoi" ColumnName="id_con_giong_vat_nuoi" />
+                <ScalarProperty Name="id_animal" ColumnName="id_animal" />
+                <ScalarProperty Name="id_tinh_phoi" ColumnName="id_tinh_phoi" />
+                <ScalarProperty Name="id_loai_hinh" ColumnName="id_loai_hinh" />
+                <ScalarProperty Name="id_user_dung_dau" ColumnName="id_user_dung_dau" />
+                <ScalarProperty Name="id_xa" ColumnName="id_xa" />
+                <ScalarProperty Name="id_huyen" ColumnName="id_huyen" />
+                <ScalarProperty Name="id_gen" ColumnName="id_gen" />
+                <ScalarProperty Name="id_thuc_an_chan_nuoi" ColumnName="id_thuc_an_chan_nuoi" />
+                <ScalarProperty Name="id_chung_nhan" ColumnName="id_chung_nhan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Con_giong_vat_nuoi">
+            <EntityTypeMapping TypeName="ktpmudModel.Con_giong_vat_nuoi">
+              <MappingFragment StoreEntitySet="Con_giong_vat_nuoi">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="bao_ton" ColumnName="bao_ton" />
+                <ScalarProperty Name="cam_xuat_khau" ColumnName="cam_xuat_khau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gen_dv">
+            <EntityTypeMapping TypeName="ktpmudModel.Gen_dv">
+              <MappingFragment StoreEntitySet="Gen_dv">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Huyens">
+            <EntityTypeMapping TypeName="ktpmudModel.Huyen">
+              <MappingFragment StoreEntitySet="Huyen">
+                <ScalarProperty Name="id_Huyen" ColumnName="id_Huyen" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="loai_hinh_tac_dong">
+            <EntityTypeMapping TypeName="ktpmudModel.loai_hinh_tac_dong">
+              <MappingFragment StoreEntitySet="loai_hinh_tac_dong">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Loai_hinh_user">
+            <EntityTypeMapping TypeName="ktpmudModel.Loai_hinh_user">
+              <MappingFragment StoreEntitySet="Loai_hinh_user">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quy_mo">
+            <EntityTypeMapping TypeName="ktpmudModel.quy_mo">
+              <MappingFragment StoreEntitySet="quy_mo">
+                <ScalarProperty Name="id_quy_mo" ColumnName="id_quy_mo" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="ktpmudModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ktpmudModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="thanh_phan_thuc_an">
+            <EntityTypeMapping TypeName="ktpmudModel.thanh_phan_thuc_an">
+              <MappingFragment StoreEntitySet="thanh_phan_thuc_an">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="cam" ColumnName="cam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tinh_phoi_uu_trung_aptrung">
+            <EntityTypeMapping TypeName="ktpmudModel.Tinh_phoi_uu_trung_aptrung">
+              <MappingFragment StoreEntitySet="Tinh_phoi_uu_trung_aptrung">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="ktpmudModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="id_xa" ColumnName="id_xa" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="id_quy_mo" ColumnName="id_quy_mo" />
+                <ScalarProperty Name="id_huyen" ColumnName="id_huyen" />
+                <ScalarProperty Name="id_co_so" ColumnName="id_co_so" />
+                <ScalarProperty Name="id_role" ColumnName="id_role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Xas">
+            <EntityTypeMapping TypeName="ktpmudModel.Xa">
+              <MappingFragment StoreEntitySet="Xa">
+                <ScalarProperty Name="id_xa" ColumnName="id_xa" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id_Huyen" ColumnName="id_Huyen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logs">
+            <EntityTypeMapping TypeName="ktpmudModel.log">
+              <MappingFragment StoreEntitySet="log">
+                <ScalarProperty Name="id_loai_hinh_tac_dong" ColumnName="id_loai_hinh_tac_dong" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="du_lieu_tac_dong" ColumnName="du_lieu_tac_dong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ktpmudModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ktpmudModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ktpmudModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ktpmudModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ktpmudModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ktpmudModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ktpmudModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ktpmudModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ktpmudModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
