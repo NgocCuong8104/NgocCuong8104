@@ -15,19 +15,19 @@
         </Grid.ColumnDefinitions>
 
         <!-- Menu Section -->
-        <Grid Grid.Column="0" Background="#D3D3D3">
+        <Grid Grid.Column="0" Background="#FFEAEBAB">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="👤USER" FontSize="30" Margin="10" HorizontalAlignment="Center" Grid.Row="0" FontWeight="Bold" Foreground="#333"/>
+            <TextBlock Text="👤USER" FontSize="30" Margin="10" HorizontalAlignment="Center" Grid.Row="0" FontWeight="Bold" Foreground="Black"/>
             <Border Grid.Row="1" BorderThickness="0,1,0,0" BorderBrush="Gray">
                 <StackPanel Grid.Row="1" Margin="10" >
                     <Button  Padding="10" Margin="0,5,0,0" Background="Transparent" BorderBrush="Transparent" >
                         <StackPanel>
-                            <TextBlock Text="Thông tin" FontSize="14" VerticalAlignment="Center" FontWeight="Bold" Foreground="#333"/>
+                            <TextBlock Text="Thông tin" FontSize="14" VerticalAlignment="Center" FontWeight="Bold" Foreground="Black"/>
                         </StackPanel>
                     </Button>
                     <!-- Thêm các nút khác ở đây nếu cần -->
@@ -36,7 +36,7 @@
             <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="Gray">
                 <Button Padding="10" Margin="10" Grid.Row="2" Click="LogoutButton_Click" Background="Transparent" BorderBrush="Transparent">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Đăng xuất" VerticalAlignment="Center" FontWeight="Bold" Foreground="#333" FontSize="14"/>
+                        <TextBlock Text="Đăng xuất" VerticalAlignment="Center" FontWeight="Bold" Foreground="Black" FontSize="14"/>
                     </StackPanel>
                 </Button>
             </Border>
@@ -46,23 +46,16 @@
         <Grid Grid.Column="1" >
             <!-- Background with an image -->
             <Grid.Background>
-                <ImageBrush ImageSource="/images/nen.jpg" Opacity="0.4"/>
+                <ImageBrush ImageSource="/images/nen1.jpeg" />
             </Grid.Background>
 
             <!-- Decorative Content -->
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <!-- Add a decorative image 
-                <Image Source="your-image-path.jpg" Width="200" Height="200" Stretch="Uniform" Margin="0,0,0,20">
-                    <Image.RenderTransform>
-                        <RotateTransform Angle="10" CenterX="100" CenterY="100"/>
-                    </Image.RenderTransform>
-                </Image> -->
-
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,100">
                 <!-- Welcome text with shadow effect -->
                 <TextBlock Text="Chào mừng bạn đến với Dashboard!" 
                    FontSize="30" 
                    FontWeight="Bold" 
-                   Foreground="Black" 
+                   Foreground="White" 
                    HorizontalAlignment="Center" 
                    TextAlignment="Center">
                     <TextBlock.Effect>
@@ -74,7 +67,7 @@
                 <TextBlock Text="Hãy bắt đầu hành trình của bạn!" 
                    FontSize="18" 
                    FontStyle="Italic" 
-                   Foreground="Black" 
+                   Foreground="White" 
                    HorizontalAlignment="Center" 
                    Margin="0,10,0,0"/>
             </StackPanel>

@@ -20,7 +20,7 @@
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Background="#D3D3D3" >
+            <Grid Grid.Column="0" Background="#FFEAEBAB" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
@@ -29,27 +29,27 @@
 
                 <TextBlock Text="🛠️ ADMIN" FontSize="30" Margin="10" HorizontalAlignment="Center" Grid.Row="0" 
                    FontWeight="Bold" 
-                   Foreground="#333"/>
+                   Foreground="Black"/>
                 <Border Grid.Row="1" BorderThickness="0,1,0,0" BorderBrush="Gray">
                     <StackPanel Grid.Row="1" Margin="5,10,5,10" >
                         <Button Padding="10" Margin="0,5,0,0" Click="LoginInfoButton_Click" Background="Transparent" BorderBrush="Transparent" >
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Thông tin đăng nhập" FontSize="14" VerticalAlignment="Center" FontWeight="Bold" Foreground="#333"/>
+                                <TextBlock Text="Thông tin đăng nhập" FontSize="14" VerticalAlignment="Center" FontWeight="Bold" Foreground="Black"/>
                             </StackPanel>
                         </Button>
                         <Button Padding="10" Margin="0,5,0,0" Click="AdminManagementButton_Click" Background="Transparent" BorderBrush="Transparent">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Quản lý cơ sở hành chính" FontWeight="Bold" Foreground="#333" FontSize="14" VerticalAlignment="Center"/>
+                                <TextBlock Text="Quản lý cơ sở hành chính" FontWeight="Bold" Foreground="Black" FontSize="14" VerticalAlignment="Center"/>
                             </StackPanel>
                         </Button>
                         <Button Padding="10" Margin="0,5,0,0" Click="UserManagementButton_Click" Background="Transparent" BorderBrush="Transparent">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Quản lý người dùng" FontWeight="Bold" Foreground="#333" FontSize="14"/>
+                                <TextBlock Text="Quản lý người dùng" FontWeight="Bold" Foreground="Black" FontSize="14"/>
                             </StackPanel>
                         </Button>
                         <Button Padding="10" Margin="0,5,0,0" Click="FacilityManagementButton_Click" Background="Transparent" BorderBrush="Transparent">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Quản lý cơ sở" FontWeight="Bold" Foreground="#333" FontSize="14"/>
+                                <TextBlock Text="Quản lý cơ sở" FontWeight="Bold" Foreground="Black" FontSize="14"/>
                             </StackPanel>
                         </Button>
                     </StackPanel>
@@ -57,13 +57,13 @@
                 <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="Gray">
                     <Button Padding="10" Margin="10" Grid.Row="2" Click="LogoutButton_Click" Background="Transparent" BorderBrush="Transparent">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Đăng xuất" VerticalAlignment="Center" FontWeight="Bold" Foreground="#333" FontSize="14"/>
+                            <TextBlock Text="Đăng xuất" VerticalAlignment="Center" FontWeight="Bold" Foreground="Black" FontSize="14"/>
                         </StackPanel>
                     </Button>
                 </Border>
             </Grid>
             <!-- Main Content Section -->
-            <Frame x:Name="MainContentFrame" Grid.Column="1" Background="White"/>
+            <Frame x:Name="MainContentFrame" Grid.Column="1" Background="White" NavigationUIVisibility="Hidden"  Source="View/welcome.xaml"/>
         </Grid>
         <!-- <Grid Grid.Row="0">
             <DockPanel HorizontalAlignment="Center" Height="25" LastChildFill="False" VerticalAlignment="Top" Width="800" Background="AliceBlue"/>

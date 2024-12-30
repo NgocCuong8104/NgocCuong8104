@@ -2,58 +2,101 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Thêm người dùng mới" 
-        Width="400" 
-        Height="500">
-    <Grid Margin="10">
-        <StackPanel>
-            <TextBlock Text="Thêm người dùng mới" FontSize="20" Margin="0,0,0,20" HorizontalAlignment="Center"/>
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="Username:" Width="120" VerticalAlignment="Center"/>
-                <TextBox Text="{Binding NewUsername, UpdateSourceTrigger=PropertyChanged}" Width="200"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="Password:" Width="120" VerticalAlignment="Center"/>
-                <PasswordBox Width="200" PasswordChanged="PasswordBox_PasswordChanged" />
+        Width="600" 
+        Height="450"
+        Background="#F4F4F9"
+        WindowStartupLocation="CenterScreen">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <!-- Main StackPanel for form elements -->
 
+            <TextBlock Text="Thêm người dùng mới" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center" Padding="10"/>
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <!-- Username Section -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Username:" Width="120" VerticalAlignment="Center" FontSize="16"/>
+                <TextBox Text="{Binding NewUsername, UpdateSourceTrigger=PropertyChanged}" Width="250" Margin="10,0" Padding="10" FontSize="16" BorderBrush="#0078D4" BorderThickness="1" Height="35"/>
             </StackPanel>
 
+            <!-- Password Section -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="Huyện:" Width="120" VerticalAlignment="Center"/>
+                <TextBlock Text="Password:" Width="120" VerticalAlignment="Center" FontSize="16"/>
+                <PasswordBox Width="250" Margin="10,0" Padding="10" FontSize="16" BorderBrush="#0078D4" BorderThickness="1" Height="35" PasswordChanged="PasswordBox_PasswordChanged"/>
+            </StackPanel>
+
+            <!-- Huyện (District) Section -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Huyện:" Width="120" VerticalAlignment="Center" FontSize="16"/>
                 <ComboBox ItemsSource="{Binding Huyens}" 
                           SelectedValue="{Binding NewHuyenId, Mode=TwoWay}"
                           SelectedValuePath="id_Huyen"
                           DisplayMemberPath="name"
-                          Width="200"/>
+                          Width="250" 
+                          Margin="10,0"
+                          FontSize="16"
+                          BorderBrush="#0078D4"
+                          BorderThickness="1"
+                          Height="35"/>
             </StackPanel>
+
+            <!-- Xã (Sub-district) Section -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="Xã:" Width="120" VerticalAlignment="Center"/>
+                <TextBlock Text="Xã:" Width="120" VerticalAlignment="Center" FontSize="16"/>
                 <ComboBox ItemsSource="{Binding NewXas}" 
                           SelectedValue="{Binding NewXaId, Mode=TwoWay}" 
                           SelectedValuePath="id_xa"
                           DisplayMemberPath="name"
-                          Width="200"/>
+                          Width="250" 
+                          Margin="10,0"
+                          FontSize="16"
+                          BorderBrush="#0078D4"
+                          BorderThickness="1"
+                          Height="35"/>
             </StackPanel>
+
+            <!-- Phone Number Section -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="Số điện thoại:" Width="120" VerticalAlignment="Center"/>
-                <TextBox Text="{Binding NewSdt, UpdateSourceTrigger=PropertyChanged}" Width="200"/>
+                <TextBlock Text="Số điện thoại:" Width="120" VerticalAlignment="Center" FontSize="16"/>
+                <TextBox Text="{Binding NewSdt, UpdateSourceTrigger=PropertyChanged}" Width="250" Margin="10,0" Padding="10" FontSize="16" BorderBrush="#0078D4" BorderThickness="1" Height="35"/>
             </StackPanel>
+
+            <!-- Email Section -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="Email:" Width="120" VerticalAlignment="Center"/>
-                <TextBox Text="{Binding NewEmail, UpdateSourceTrigger=PropertyChanged}" Width="200"/>
+                <TextBlock Text="Email:" Width="120" VerticalAlignment="Center" FontSize="16"/>
+                <TextBox Text="{Binding NewEmail, UpdateSourceTrigger=PropertyChanged}" Width="250" Margin="10,0" Padding="10" FontSize="16" BorderBrush="#0078D4" BorderThickness="1" Height="35"/>
             </StackPanel>
+
+            <!-- Role Section -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <TextBlock Text="Role:" Width="120" VerticalAlignment="Center"/>
+                <TextBlock Text="Role:" Width="120" VerticalAlignment="Center" FontSize="16"/>
                 <ComboBox ItemsSource="{Binding Roles}" 
                           SelectedValue="{Binding NewRoleId, Mode=TwoWay}" 
                           SelectedValuePath="id"
                           DisplayMemberPath="name"
-                          Width="200"/>
+                          Width="250" 
+                          Margin="10,0"
+                          FontSize="16"
+                          BorderBrush="#0078D4"
+                          BorderThickness="1"
+                          Height="35"/>
             </StackPanel>
+        </StackPanel>
+        <!-- Save Button -->
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" >
             <Button Content="Lưu" 
                     Command="{Binding AddUserCommand}" 
-                    Width="100" 
-                    HorizontalAlignment="Center" 
-                    Margin="0,20,0,0"/>
+                    Width="150" 
+                    Background="#0078D4" 
+                    Foreground="White" 
+                    FontSize="16"
+                    BorderBrush="#005A9E"
+                    Padding="5"
+                    BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,10"/>
         </StackPanel>
     </Grid>
 </Window>

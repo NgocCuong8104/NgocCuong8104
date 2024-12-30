@@ -9,7 +9,7 @@
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <TextBlock Text="Quản lý người dùng" FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10" FontWeight="Bold"/>
+            <TextBlock Text="Quản lý người dùng" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10" FontWeight="Bold" />
         </Grid>
 
         <StackPanel Grid.Row="1" Margin="10">
@@ -83,7 +83,7 @@
             <Button Content="Cập nhật" Command="{Binding UpdateUserCommand}" Width="80" Height="40" Margin="5"/>
             <Button Content="Xóa" Command="{Binding DeleteUserCommand}" Width="80" Height="40" Margin="5"/>
             <Button Content="Tìm kiếm" Command="{Binding SearchUserCommand}" Width="80" Height="40" Margin="5"/>
-            <Button Content="Làm mới" Command="{Binding ResetFieldCommand}" Width="80" Height="40" Margin="5"/>
+            <Button Content="Làm mới" Command="{Binding ResetFieldCommand}" Width="80" Height="40" Margin="5" />
             <Button Content="Thêm" Command="{Binding OpenAddUserWindowCommand}" Width="80" Height="40"  Margin="5"/>
         </StackPanel>
     </Grid>

@@ -16,8 +16,7 @@
         <!-- Tiêu đề -->
         <TextBlock Text="Thông tin đăng nhập" 
                    FontSize="30" 
-                   FontWeight="Bold" 
-                   Foreground="#333" 
+                   FontWeight="Bold"  
                    HorizontalAlignment="Left" 
                    Margin="132,0,0,20" 
                    Grid.ColumnSpan="2" Width="296"/>
@@ -63,8 +62,12 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" 
                     Grid.ColumnSpan="2" Grid.Row="1" Margin="160,275,0,0" Width="240" >
-            <Button Content="Lưu Thay Đổi" Command="{Binding SaveCommand}"  Width="120" Height="29" />
-            <Button Content="Làm Mới" Command="{Binding ResetCommand}"  Width="120" Height="29" />
+            <Button Content="Lưu " Command="{Binding SaveCommand}"  Width="120" Height="29" 
+                    BorderBrush="#005A9E" 
+                    FontSize="16"
+                    Background="#0078D4" 
+                    Foreground="White"/>
+            <Button Content="Làm Mới" Command="{Binding ResetCommand}"  Width="120" Height="29" FontSize="16" />
         </StackPanel>
     </Grid>
 </Page>
